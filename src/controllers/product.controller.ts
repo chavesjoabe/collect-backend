@@ -5,9 +5,9 @@ import UserModel from '../models/User.model';
 
 class ProductController {
     public async findAll(req: Request, res: Response) {
-        const products = await CollectPointModel.find();
+        const collectPoints = await CollectPointModel.find();
 
-        return res.status(200).json(products);
+        return res.status(200).json(collectPoints);
     }
 
     public async create(req: Request, res: Response) {
