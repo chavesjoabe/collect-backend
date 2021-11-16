@@ -14,8 +14,8 @@ class CollectPointModel {
         const productSchema = new Schema({
             name: { type: String, required: true },
             description: { type: String, required: true },
-            latitude: { type: String, required: true },
-            longitude: { type: String, required: true },
+            latitude: { type: Number, required: true },
+            longitude: { type: Number, required: true },
             user: { type: Schema.Types.ObjectId, ref: 'User' },
         });
 
