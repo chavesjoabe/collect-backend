@@ -10,6 +10,15 @@ class ProductController {
         return res.status(200).json(collectPoints);
     }
 
+    public async findAllByUser(req: Request, res: Response) {
+        const { id } = req.params;
+        const collectPoints = await CollectPointModel.find({
+            user: id
+        });
+
+        return res.status(200).json(collectPoints);
+    }
+
     public async create(req: Request, res: Response) {
         const {
             name,
