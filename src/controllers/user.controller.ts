@@ -12,8 +12,8 @@ class UserController {
     
     public async findOne(req: Request, res: Response) {
         const { id } = req.params;
-        const user = await UserModel.find({
-            id
+        const [user] = await UserModel.find({
+            _id: id
         });
 
         return res.json(user);
@@ -46,7 +46,7 @@ class UserController {
 
         try {
             const updated = await UserModel.updateOne(
-                { id },
+                { _id: id },
                 {
                     name,
                     email,
@@ -58,6 +58,7 @@ class UserController {
 
             return res.json(updated);
         } catch (error) {
+            console.error(error)
             return res
                 .status(500)
                 .json({
